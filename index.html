@@ -1,1046 +1,890 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Youth Public Health Leadership Framework Sessions</title>
-  <meta name="description" content="Phase 1: Public Health Leadership Frameworks for Youth Health Initiative" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vallejo Youth Health Initiative: Student Study Guide</title>
 
-  <style>
-    :root {
-      --primary-color: #4c6ef5;
-      --secondary-color: #40c057;
-      --accent-color: #fd7e14;
-      --dark-color: #343a40;
-      --light-color: #f8f9fa;
-      --text-color: #212529;
-      --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      color: var(--text-color);
-      background-color: #f1f3f5;
-    }
-    
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 5px;
-    }
-    
-    header {
-      background: linear-gradient(135deg, var(--primary-color), #228be6);
-      color: #fff;
-      padding: 2.5rem;
-      text-align: center;
-      border-radius: 15px;
-      margin-bottom: 2rem;
-      box-shadow: var(--shadow);
-    }
-    
-    header h1 {
-      font-size: 2.2rem;
-      margin-bottom: 0.5rem;
-      font-weight: 700;
-    }
-    
-    header h2 {
-      font-size: 1.3rem;
-      font-weight: 400;
-      margin-bottom: 1rem;
-      opacity: 0.9;
-    }
-    
-    header p {
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
-      opacity: 0.9;
-    }
-    
-    .date-box {
-      display: inline-block;
-      background-color: rgba(255, 255, 255, 0.2);
-      padding: 0.5rem 1rem;
-      border-radius: 30px;
-      font-weight: 500;
-      margin-top: 0.5rem;
-    }
-    
-    /* Session toggle section */
-    .session-toggle {
-      background-color: #fff;
-      border-radius: 15px;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      box-shadow: var(--shadow);
-      text-align: center;
-    }
-    
-    .toggle-container {
-      display: inline-flex;
-      background-color: #e9ecef;
-      border-radius: 50px;
-      position: relative;
-      padding: 5px;
-      margin: 1rem auto;
-    }
-    
-    .toggle-button {
-      padding: 0.8rem 2rem;
-      border-radius: 50px;
-      border: none;
-      font-weight: 600;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      position: relative;
-      z-index: 1;
-      background: transparent;
-    }
-    
-    .toggle-button.active {
-      color: white;
-    }
-    
-    .toggle-slider {
-      position: absolute;
-      top: 5px;
-      left: 5px;
-      width: 50%;
-      height: calc(100% - 10px);
-      background-color: var(--primary-color);
-      border-radius: 50px;
-      transition: all 0.3s ease;
-    }
-    
-    /* Intro section */
-    .intro-section {
-      background-color: #fff;
-      border-radius: 15px;
-      padding: 2rem;
-      margin-bottom: 2rem;
-      box-shadow: var(--shadow);
-    }
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
-    .intro-message {
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto 1.5rem auto;
-      font-size: 1.1rem;
-      line-height: 1.7;
-    }
-
-    /* QR code section */
-    .qr-section {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: var(--light-color);
-      border-radius: 12px;
-      padding: 2rem;
-      box-shadow: var(--shadow);
-      margin-bottom: 2rem;
-      text-align: center;
-    }
-    
-    .qr-container {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      gap: 2rem;
-    }
-    
-    .qr-item {
-      flex: 1;
-      min-width: 200px;
-      max-width: 300px;
-      text-align: center;
-    }
-    
-    .qr-section p {
-      margin-bottom: 1rem;
-      color: #495057;
-    }
-
-    /* Activities Section with drop-downs */
-    .activities-section {
-      background-color: #fff;
-      border-radius: 15px;
-      padding: 2rem;
-      margin-bottom: 2rem;
-      box-shadow: var(--shadow);
-    }
-
-    .section-title {
-      color: var(--primary-color);
-      font-size: 1.8rem;
-      margin-bottom: 1.5rem;
-      text-align: center;
-      position: relative;
-      padding-bottom: 0.5rem;
-    }
-
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100px;
-      height: 3px;
-      background-color: var(--primary-color);
-    }
-
-    .activity-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .activity-card {
-      background-color: var(--light-color);
-      border-radius: 10px;
-      padding: 1.5rem;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-      transition: transform 0.3s ease;
-      cursor: pointer;
-      position: relative;
-    }
-
-    .activity-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .activity-card h4 {
-      color: var(--primary-color);
-      margin-bottom: 1rem;
-      font-size: 1.1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .activity-card h4 .time {
-      font-size: 0.8rem;
-      padding: 0.3rem 0.6rem;
-      border-radius: 20px;
-      background-color: var(--accent-color);
-      color: #fff;
-      font-weight: normal;
-    }
-
-    .activity-card ul {
-      padding-left: 1.2rem;
-      margin-top: 0.5rem;
-    }
-
-    .activity-card li {
-      margin-bottom: 0.5rem;
-      color: #495057;
-      font-size: 0.95rem;
-    }
-
-    .expand-icon {
-      position: absolute;
-      bottom: 15px;
-      right: 15px;
-      background-color: var(--primary-color);
-      color: #fff;
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      transition: transform 0.3s ease;
-    }
-
-    .detailed-content {
-      display: none;
-      background-color: #fff;
-      border-radius: 10px;
-      padding: 1.5rem;
-      margin-top: 1rem;
-      border-top: 3px solid var(--primary-color);
-    }
-
-    .detailed-content.active {
-      display: block;
-      animation: fadeIn 0.5s ease;
-    }
-    
-    /* Session content containers */
-    .session-content {
-      display: none;
-    }
-    
-    .session-content.active {
-      display: block;
-      animation: fadeIn 0.5s ease;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(-10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Boxes for Key Terms, Discussion, Activities, Reflection */
-    .definition-box {
-      background-color: #e7f5ff;
-      border-left: 4px solid #4dabf7;
-      padding: 1rem;
-      border-radius: 5px;
-      margin-bottom: 1.5rem;
-    }
-    
-    .discussion-box {
-      background-color: #fff9db;
-      border-left: 4px solid #fcc419;
-      padding: 1rem;
-      border-radius: 5px;
-      margin-bottom: 1.5rem;
-    }
-    
-    .activity-box {
-      background-color: #f3f0ff;
-      border-left: 4px solid #7950f2;
-      padding: 1rem;
-      border-radius: 5px;
-      margin-bottom: 1.5rem;
-    }
-    
-    .feedback-box {
-      background-color: #ebfbee;
-      border-left: 4px solid #40c057;
-      padding: 1rem;
-      border-radius: 5px;
-      margin-bottom: 1.5rem;
-    }
-
-    /* Footer */
-    .footer {
-      text-align: center;
-      padding: 2rem;
-      background-color: var(--dark-color);
-      color: #fff;
-      border-radius: 15px;
-      margin-top: 2rem;
-      font-size: 0.9rem;
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      .activity-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .qr-container {
-        flex-direction: column;
-        align-items: center;
-      }
-      
-      .toggle-button {
-        padding: 0.8rem 1.5rem;
-        font-size: 0.9rem;
-      }
-    }
-  </style>
-</head>
-
-<body>
-  <div class="container">
-    <header>
-      <h1>Public Health Leadership</h1>
-      <h2>Framework Sessions</h2>
-      <p>Phase 1: Foundation Building & Systems Mapping</p>
-      <div class="date-box">May 2025</div>
-    </header>
-    
-    <!-- Session Toggle Section -->
-    <section class="session-toggle">
-      <h3>Select a Session</h3>
-      <div class="toggle-container">
-        <div class="toggle-slider"></div>
-        <button id="session1-btn" class="toggle-button active" onclick="switchSession(1)">Session 1</button>
-        <button id="session2-btn" class="toggle-button" onclick="switchSession(2)">Session 2</button>
-      </div>
-    </section>
-    
-    <!-- SESSION 1 CONTENT -->
-    <div id="session1-content" class="session-content active">
-      <!-- Introduction -->
-      <section class="intro-section">
-        <div class="intro-message">
-          <p>
-            <strong>Session 1: Root Cause Analysis & Goal Setting</strong><br>
-            In this session, we'll focus on understanding the underlying causes of health disparities 
-            in Vallejo and setting actionable goals. We'll explore two powerful frameworks: the 5 Whys 
-            technique for root cause analysis and the SMART Goal framework for creating measurable 
-            objectives. These tools will help us address the five pressure systems affecting youth health 
-            that we've identified in our needs assessment.
-          </p>
-          <div class="date-box">Monday, May 12, 2025 | 90 mins</div>
-        </div>
-      </section>
-
-      <!-- Resources Section -->
-      <section class="activities-section">
-        <h2 class="section-title">Session Resources</h2>
-        <div class="activity-grid">
-          <!-- 5 Whys Resources -->
-          <div class="activity-card" onclick="toggleSection('resources-five-whys')" aria-expanded="false">
-            <h4>5 Whys Framework Resources</h4>
-            <ul>
-              <li>Guides & tutorials</li>
-              <li>Example worksheets</li>
-              <li>Video demonstrations</li>
-            </ul>
-            <div class="expand-icon">+</div>
-            
-            <div id="resources-five-whys" class="detailed-content">
-              <p>Click the links below to access resources:</p>
-              <ul style="list-style-type: none; padding: 0;">
-                <li style="margin-bottom: 10px;"><a href="https://www.interaction-design.org/literature/topics/5-whys" style="display: inline-block; padding: 8px 16px; background-color: var(--primary-color); color: white; text-decoration: none; border-radius: 4px; width: 100%; box-sizing: border-box; text-align: center;">What are 5 Whys?</a></li>
-                <li style="margin-bottom: 10px;"><a href="https://www.mlean.com/blog/what-are-the-5-whys/" style="display: inline-block; padding: 8px 16px; background-color: var(--primary-color); color: white; text-decoration: none; border-radius: 4px; width: 100%; box-sizing: border-box; text-align: center;">what-are-the-5-whys</a></li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- SMART Goals Resources -->
-          <div class="activity-card" onclick="toggleSection('resources-smart-goals')" aria-expanded="false">
-            <h4>SMART Goals Resources</h4>
-            <ul>
-              <li>Templates & worksheets</li>
-              <li>Example health goals</li>
-              <li>Planning tools</li>
-            </ul>
-            <div class="expand-icon">+</div>
-            
-            <div id="resources-smart-goals" class="detailed-content">
-              <p>Click the links below to access resources:</p>
-              <ul style="list-style-type: none; padding: 0;">
-                <li style="margin-bottom: 10px;"><a href="https://www.vecteezy.com/vector-art/17714880-smart-goals-setting-stands-for-specific-measurable-attainable-relevant-and-time-bound" style="display: inline-block; padding: 8px 16px; background-color: var(--primary-color); color: white; text-decoration: none; border-radius: 4px; width: 100%; box-sizing: border-box; text-align: center;">smart-goals-setting</a></li>
-                <li style="margin-bottom: 10px;"><a href="https://www.bmc.com/blogs/smart-goals/" style="display: inline-block; padding: 8px 16px; background-color: var(--primary-color); color: white; text-decoration: none; border-radius: 4px; width: 100%; box-sizing: border-box; text-align: center;">Introduction to SMART Goals: Examples and Tips</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Activities Section -->
-      <section class="activities-section">
-        <h2 class="section-title">Session 1 Activities</h2>
-        <p style="text-align: center; margin-bottom: 20px; color: #495057;">
-          Click on an activity to see details (Key Terms, Discussion Points, Activity, Reflection).
-        </p>
-        
-        <div class="activity-grid">
-          <!-- Activity 1: The 5 Whys Framework -->
-          <div class="activity-card" onclick="toggleSection('activity-five-whys')" aria-expanded="false">
-            <h4>The 5 Whys Framework 
-              <span class="time">30 mins</span>
-            </h4>
-            <ul>
-              <li>Introduction to root cause analysis</li>
-              <li>Simple 5 Whys demonstration</li>
-              <li>Guided practice exercise</li>
-            </ul>
-            <div class="expand-icon">+</div>
-            
-            <div id="activity-five-whys" class="detailed-content">
-              <!-- Key Terms -->
-              <div class="definition-box">
-                <h4>Key Terms</h4>
-                <p><strong>Root Cause Analysis:</strong> A method that identifies the underlying source of a problem rather than treating symptoms.</p>
-                <p><strong>5 Whys Technique:</strong> A simple technique of asking "why" multiple times to dig deeper into an issue.</p>
-              </div>
-
-              <!-- Discussion Points -->
-              <div class="discussion-box">
-                <h4>Discussion Points</h4>
-                <ul>
-                  <li>Why do we often address symptoms instead of underlying causes?</li>
-                  <li>How can asking "why" help us understand youth health issues better?</li>
-                </ul>
-              </div>
-
-              <!-- Activity -->
-              <div class="activity-box">
-                <h4>Activity</h4>
-                <p><strong>Part 1 (10 mins):</strong> Facilitator demonstrates the 5 Whys technique using a simple example:</p>
-                <ul>
-                  <li>Problem: "Students aren't accessing free STI testing at the health center."</li>
-                  <li>Why? "They don't know about it."</li>
-                  <li>Why? "The information isn't reaching them."</li>
-                  <li>Why? "Announcements are only posted in certain locations."</li>
-                  <li>Why? "There's a limited outreach strategy."</li>
-                  <li>Why? "Youth input wasn't included in communication planning."</li>
-                </ul>
-                
-                <p><strong>Part 2 (15 mins):</strong> In pairs, practice using the 5 Whys:</p>
-                <ol>
-                  <li>Choose ONE simple problem from the following list:
-                    <ul>
-                      <li>Youth skipping meals</li>
-                      <li>Low attendance at health workshops</li>
-                      <li>Difficulty accessing online resources</li>
-                    </ul>
-                  </li>
-                  <li>Ask "why" at least 3-5 times</li>
-                  <li>Write your answers on the provided worksheet</li>
-                </ol>
-                
-                <p><strong>Part 3 (5 mins):</strong> Volunteers share what they discovered.</p>
-              </div>
-
-              <!-- Reflection Questions -->
-              <div class="feedback-box">
-                <h4>Reflection Questions</h4>
-                <ul>
-                  <li>What surprised you about the causes you identified?</li>
-                  <li>How might this technique help with your project planning?</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- Activity 2: SMART Goal Framework -->
-          <div class="activity-card" onclick="toggleSection('activity-smart-goals')" aria-expanded="false">
-            <h4>SMART Goal Framework 
-              <span class="time">30 mins</span>
-            </h4>
-            <ul>
-              <li>Basic goal-setting principles</li>
-              <li>Understanding SMART components</li>
-              <li>Practice with examples</li>
-            </ul>
-            <div class="expand-icon">+</div>
-
-            <div id="activity-smart-goals" class="detailed-content">
-              <!-- Key Terms -->
-              <div class="definition-box">
-                <h4>Key Terms</h4>
-                <p><strong>SMART Goals:</strong> Goals that are Specific, Measurable, Achievable, Relevant, and Time-bound.</p>
-                <p><strong>Specific:</strong> Clearly defines what will be accomplished.</p>
-                <p><strong>Measurable:</strong> Includes criteria for tracking progress.</p>
-                <p><strong>Achievable:</strong> Realistic given your resources and constraints.</p>
-                <p><strong>Relevant:</strong> Aligned with your broader goals and needs.</p>
-                <p><strong>Time-bound:</strong> Has a clear deadline.</p>
-              </div>
-
-              <!-- Discussion Points -->
-              <div class="discussion-box">
-                <h4>Discussion Points</h4>
-                <ul>
-                  <li>Why do vague goals often fail?</li>
-                  <li>How can specific metrics help us track progress?</li>
-                </ul>
-              </div>
-
-              <!-- Activity -->
-              <div class="activity-box">
-                <h4>Activity</h4>
-                <p><strong>Part 1 (10 mins):</strong> Facilitator introduces SMART goal components with examples:</p>
-                <ul>
-                  <li><strong>Not SMART:</strong> "Increase youth awareness about health resources."</li>
-                  <li><strong>SMART:</strong> "Create 10 resource cards about local health services and distribute to at least 50 students by May 31, 2025."</li>
-                </ul>
-                
-                <p><strong>Part 2 (15 mins):</strong> In pairs, transform these vague goals into SMART goals:</p>
-                <ol>
-                  <li>"Help students learn about nutrition."</li>
-                  <li>"Make a social media campaign about mental health."</li>
-                  <li>"Improve access to transportation."</li>
-                </ol>
-                
-                <p><strong>Part 3 (5 mins):</strong> Share your best example with the group.</p>
-              </div>
-
-              <!-- Reflection Questions -->
-              <div class="feedback-box">
-                <h4>Reflection Questions</h4>
-                <ul>
-                  <li>Which SMART component was hardest to define?</li>
-                  <li>How might you use SMART goals in your project planning?</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- Activity 3: Integration Mini-Exercise -->
-          <div class="activity-card" onclick="toggleSection('activity-integration')" aria-expanded="false">
-            <h4>Integration Mini-Exercise 
-              <span class="time">20 mins</span>
-            </h4>
-            <ul>
-              <li>Connecting causes to goals</li>
-              <li>Simple action planning</li>
-              <li>Next steps outline</li>
-            </ul>
-            <div class="expand-icon">+</div>
-
-            <div id="activity-integration" class="detailed-content">
-              <!-- Activity -->
-              <div class="activity-box">
-                <h4>Activity</h4>
-                <p><strong>Part 1 (10 mins):</strong> Working individually:</p>
-                <ol>
-                  <li>Choose one cause you identified in the 5 Whys exercise</li>
-                  <li>Write one SMART goal that addresses this cause</li>
-                  <li>List 2-3 simple actions you could take to achieve this goal</li>
-                </ol>
-                
-                <p><strong>Part 2 (10 mins):</strong> Share with a partner and provide feedback to each other.</p>
-              </div>
-
-              <!-- Reflection Questions -->
-              <div class="feedback-box">
-                <h4>Reflection Questions</h4>
-                <ul>
-                  <li>How did identifying the root cause help you create a better goal?</li>
-                  <li>What resources might you need to implement your actions?</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Assignment -->
-      <section class="activities-section">
-        <h2 class="section-title">Session 1 Assignment</h2>
-        <p style="text-align: center; margin-bottom: 20px; color: #495057;">
-          Complete this assignment before our next session.
-        </p>
-        <div class="activity-grid">
-          <div class="activity-card" style="cursor:auto;">
-            <h4>Root Cause & SMART Goal Homework<span class="time">Due Next Session</span></h4>
-            <ul>
-              <li>Apply 5 Whys to one health challenge</li>
-              <li>Create one SMART goal</li>
-              <li>List 3-5 action steps</li>
-            </ul>
-            <!-- Details open by default here -->
-            <div class="expand-icon" style="pointer-events: none;">&nbsp;</div>
-            <div class="detailed-content" style="display: block;">
-              <p>
-                <strong>Instructions:</strong> Complete this simple homework assignment:
-              </p>
-              <ol>
-                <li>Choose one youth health challenge that interests you</li>
-                <li>Apply the 5 Whys technique to identify a root cause (write down all 5 levels)</li>
-                <li>Create one SMART goal that addresses this root cause</li>
-                <li>List 3-5 specific action steps you could take to achieve this goal</li>
-              </ol>
-              <p>
-                Bring your completed worksheet to Session 2 on Wednesday. We'll build on these ideas 
-                to develop KPIs and feedback loops in our next session.
-              </p>
-              <p style="margin-top: 15px; text-align: center;">
-                <a href="#" style="display: inline-block; padding: 10px 20px; background-color: var(--primary-color); color: white; text-decoration: none; border-radius: 4px; font-weight: 500;">Session Resources & Exit Ticket</a>
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-    
-    <!-- SESSION 2 CONTENT -->
-    <div id="session2-content" class="session-content">
-      <!-- Introduction -->
-      <section class="intro-section">
-        <div class="intro-message">
-          <p>
-            <strong>Session 2: Measurement & Continuous Improvement</strong><br>
-            Building on the foundation from Session 1, we'll focus on tracking progress and creating 
-            sustainable improvements. We'll explore KPI development for meaningful measurement and 
-            feedback loops that drive continuous improvement. These frameworks will help us create 
-            lasting change in addressing the five pressure systems affecting youth health in Vallejo.
-          </p>
-          <div class="date-box">Wednesday, May 14, 2025 | 90 mins</div>
-        </div>
-      </section>
-
-      <!-- Resources Section -->
-      <section class="activities-section">
-        <h2 class="section-title">Session Resources</h2>
-        <div class="activity-grid">
-          <!-- KPI Resources -->
-          <div class="activity-card" onclick="toggleSection('resources-kpi')" aria-expanded="false">
-            <h4>KPI Development Resources</h4>
-            <ul>
-              <li>KPI creation guides</li>
-              <li>Measurement tools</li>
-              <li>Health metrics examples</li>
-            </ul>
-            <div class="expand-icon">+</div>
-            
-            <div id="resources-kpi" class="detailed-content">
-              <p>Click the links below to access resources:</p>
-              <ul style="list-style-type: none; padding: 0;">
-                <li style="margin-bottom: 10px;"><a href="#" style="display: inline-block; padding: 8px 16px; background-color: var(--primary-color); color: white; text-decoration: none; border-radius: 4px; width: 100%; box-sizing: border-box; text-align: center;">KPI Development Handbook</a></li>
-                <li style="margin-bottom: 10px;"><a href="#" style="display: inline-block; padding: 8px 16px; background-color: var(--primary-color); color: white; text-decoration: none; border-radius: 4px; width: 100%; box-sizing: border-box; text-align: center;">Public Health Metrics Guide</a></li>
-                <li style="margin-bottom: 10px;"><a href="#" style="display: inline-block; padding: 8px 16px; background-color: var(--primary-color); color: white; text-decoration: none; border-radius: 4px; width: 100%; box-sizing: border-box; text-align: center;">KPI Tracking Template</a></li>
-                <li style="margin-bottom: 10px;"><a href="#" style="display: inline-block; padding: 8px 16px; background-color: var(--primary-color); color: white; text-decoration: none; border-radius: 4px; width: 100%; box-sizing: border-box; text-align: center;">Youth Initiative Examples</a></li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Feedback Loops Resources -->
-          <div class="activity-card" onclick="toggleSection('resources-feedback-loops')" aria-expanded="false">
-            <h4>Feedback Loops Resources</h4>
-            <ul>
-              <li>System design tools</li>
-              <li>Loop mapping templates</li>
-              <li>Continuous improvement guides</li>
-            </ul>
-            <div class="expand-icon">+</div>
-            
-            <div id="resources-feedback-loops" class="detailed-content">
-              <p>Click the links below to access resources:</p>
-              <ul style="list-style-type: none; padding: 0;">
-                <li style="margin-bottom: 10px;"><a href="#" style="display: inline-block; padding: 8px 16px; background-color: var(--primary-color); color: white; text-decoration: none; border-radius: 4px; width: 100%; box-sizing: border-box; text-align: center;">Feedback Loop Basics</a></li>
-                <li style="margin-bottom: 10px;"><a href="#" style="display: inline-block; padding: 8px 16px; background-color: var(--primary-color); color: white; text-decoration: none; border-radius: 4px; width: 100%; box-sizing: border-box; text-align: center;">System Mapping Tool</a></li>
-                <li style="margin-bottom: 10px;"><a href="#" style="display: inline-block; padding: 8px 16px; background-color: var(--primary-color); color: white; text-decoration: none; border-radius: 4px; width: 100%; box-sizing: border-box; text-align: center;">Youth Feedback Collection Methods</a></li>
-                <li style="margin-bottom: 10px;"><a href="#" style="display: inline-block; padding: 8px 16px; background-color: var(--primary-color); color: white; text-decoration: none; border-radius: 4px; width: 100%; box-sizing: border-box; text-align: center;">Health System Examples</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Activities Section -->
-      <section class="activities-section">
-        <h2 class="section-title">Session 2 Activities</h2>
-        <p style="text-align: center; margin-bottom: 20px; color: #495057;">
-          Click on an activity to see details (Key Terms, Discussion Points, Activity, Reflection).
-        </p>
-        
-        <div class="activity-grid">
-          <!-- Activity 1: SMART Goal Recap & Presentations -->
-          <div class="activity-card" onclick="toggleSection('activity-recap')" aria-expanded="false">
-            <h4>SMART Goal Recap & Presentations 
-              <span class="time">25 mins</span>
-            </h4>
-            <ul>
-              <li>Review previous session concepts</li>
-              <li>Present team SMART objectives</li>
-              <li>Refine goals based on feedback</li>
-            </ul>
-            <div class="expand-icon">+</div>
-            
-            <div id="activity-recap" class="detailed-content">
-              <!-- Activity -->
-              <div class="activity-box">
-                <h4>Activity</h4>
-                <p><strong>Part 1 (10 mins):</strong> Quick review of 5 Whys and SMART Goal concepts from Session 1</p>
-                <p><strong>Part 2 (15 mins):</strong> Each team presents their SMART objectives and receives feedback from peers and facilitators</p>
-              </div>
-
-              <!-- Reflection Questions -->
-              <div class="feedback-box">
-                <h4>Reflection Questions</h4>
-                <ul>
-                  <li>What common themes emerged across different teams' SMART objectives?</li>
-                  <li>How can we ensure our objectives align with addressing the root causes identified?</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- Activity 2: KPI Development -->
-          <div class="activity-card" onclick="toggleSection('activity-kpi-development')" aria-expanded="false">
-            <h4>KPI Development for Public Health 
-              <span class="time">40 mins</span>
-            </h4>
-            <ul>
-              <li>Identifying meaningful indicators</li>
-              <li>Process vs. outcome measures</li>
-              <li>Creating KPI dashboards</li>
-            </ul>
-            <div class="expand-icon">+</div>
-
-            <div id="activity-kpi-development" class="detailed-content">
-              <!-- Key Terms -->
-              <div class="definition-box">
-                <h4>Key Terms</h4>
-                <p><strong>Key Performance Indicator (KPI):</strong> A quantifiable measure used to evaluate success in meeting objectives.</p>
-                <p><strong>Process Measure:</strong> Indicators that track activities or steps taken toward a goal (e.g., number of workshops conducted).</p>
-                <p><strong>Outcome Measure:</strong> Indicators that measure the final results or impact of an initiative (e.g., percentage increase in knowledge).</p>
-                <p><strong>Leading Indicator:</strong> Metrics that predict future performance or outcomes.</p>
-                <p><strong>Lagging Indicator:</strong> Metrics that show what has already happened or been accomplished.</p>
-                <p><strong>Dashboard:</strong> A visual display of key metrics that provides at-a-glance monitoring of progress.</p>
-              </div>
-
-              <!-- Discussion Points -->
-              <div class="discussion-box">
-                <h4>Discussion Points</h4>
-                <ul>
-                  <li>What makes a KPI meaningful for youth public health initiatives?</li>
-                  <li>How do we balance easy-to-measure metrics with truly important ones?</li>
-                  <li>When might process measures be more valuable than outcome measures?</li>
-                  <li>How can we ensure KPIs capture the full impact of our work on pressure systems?</li>
-                </ul>
-              </div>
-
-              <!-- Activity -->
-              <div class="activity-box">
-                <h4>Activity</h4>
-                <p><strong>Part 1 (15 mins):</strong> Learn about different types of KPIs and review examples:</p>
-                <ul>
-                  <li><strong>Process KPI examples:</strong> Number of student-led workshops, percentage of target audience reached, number of resource cards created</li>
-                  <li><strong>Outcome KPI examples:</strong> Percentage increase in knowledge about resources, number of youth accessing services, self-reported changes in behavior</li>
-                  <li><strong>Leading indicator examples:</strong> Workshop registration rates, resource material distribution numbers</li>
-                  <li><strong>Lagging indicator examples:</strong> Post-workshop knowledge retention, service utilization rates</li>
-                </ul>
-                
-                <p><strong>Part 2 (20 mins):</strong> Working in your project teams:</p>
-                <ol>
-                  <li>Identify 2-3 process KPIs that will track your activities</li>
-                  <li>Develop 2-3 outcome KPIs that will measure impact</li>
-                  <li>Create a simple KPI tracking template that includes:
-                    <ul>
-                      <li>KPI name and definition</li>
-                      <li>Data source and collection method</li>
-                      <li>Collection frequency</li>
-                      <li>Target value</li>
-                      <li>Person responsible</li>
-                    </ul>
-                  </li>
-                  <li>Sketch a simple dashboard layout showing how you'll visualize your KPIs</li>
-                </ol>
-                
-                <p><strong>Part 3 (5 mins):</strong> Quick gallery walk to view other teams' KPI plans</p>
-              </div>
-
-              <!-- Reflection Questions -->
-              <div class="feedback-box">
-                <h4>Reflection Questions</h4>
-                <ul>
-                  <li>Which KPIs will be most meaningful to the youth you're serving?</li>
-                  <li>What are the challenges in collecting data for your selected KPIs?</li>
-                  <li>How will tracking these measures help you adjust your approach?</li>
-                  <li>How can we make data collection and reporting youth-friendly?</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- Activity 3: Feedback Loops -->
-          <div class="activity-card" onclick="toggleSection('activity-feedback-loops')" aria-expanded="false">
-            <h4>Feedback Loops for Public Health 
-              <span class="time">40 mins</span>
-            </h4>
-            <ul>
-              <li>Designing continuous improvement</li>
-              <li>Reinforcing vs. balancing loops</li>
-              <li>Building adaptive systems</li>
-            </ul>
-            <div class="expand-icon">+</div>
-
-            <div id="activity-feedback-loops" class="detailed-content">
-              <!-- Key Terms -->
-              <div class="definition-box">
-                <h4>Key Terms</h4>
-                <p><strong>Feedback Loop:</strong> A system where outputs are routed back as inputs, creating a circuit of cause and effect.</p>
-                <p><strong>Reinforcing Loop:</strong> A cycle where an action produces results that lead to more of the same action (snowball effect).</p>
-                <p><strong>Balancing Loop:</strong> A cycle that seeks equilibrium, where the system self-corrects toward a goal.</p>
-                <p><strong>Adaptive Management:</strong> An approach that incorporates regular feedback to adjust strategies and improve outcomes.</p>
-                <p><strong>Intervention Point:</strong> A place in a system where change can be implemented most effectively.</p>
-              </div>
-
-              <!-- Discussion Points -->
-              <div class="discussion-box">
-                <h4>Discussion Points</h4>
-                <ul>
-                  <li>How are youth health disparities perpetuated through reinforcing loops?</li>
-                  <li>What balancing loops might help address the five pressure systems?</li>
-                  <li>How can we design our initiative to incorporate regular feedback from participants?</li>
-                  <li>What makes some interventions more sustainable than others?</li>
-                </ul>
-              </div>
-
-              <!-- Activity -->
-              <div class="activity-box">
-                <h4>Activity</h4>
-                <p><strong>Part 1 (15 mins):</strong> Learn about feedback loops in public health:</p>
-                <ul>
-                  <li>Review the five pressure systems as examples of reinforcing loops</li>
-                  <li>Discuss how interventions can create balancing loops that counteract negative cycles</li>
-                  <li>Examine how feedback from program participants can improve program design</li>
-                </ul>
-                
-                <p><strong>Part 2 (20 mins):</strong> Working in your project teams:</p>
-                <ol>
-                  <li>Identify one harmful reinforcing loop currently affecting youth health in Vallejo related to your project area</li>
-                  <li>Sketch this loop as a simple diagram with arrows showing causation</li>
-                  <li>Design an intervention that creates a balancing loop to counteract the harmful cycle</li>
-                  <li>Develop a specific plan for collecting feedback from youth participants that will help you adjust your intervention over time</li>
-                </ol>
-                
-                <p><strong>Part 3 (5 mins):</strong> Teams share their feedback loop diagrams and plans</p>
-              </div>
-
-              <!-- Reflection Questions -->
-              <div class="feedback-box">
-                <h4>Reflection Questions</h4>
-                <ul>
-                  <li>How might we collect ongoing feedback from youth participants and community members?</li>
-                  <li>What structures can we build to ensure we actually use the feedback we collect?</li>
-                  <li>How might transparency about our feedback process build trust with the community?</li>
-                  <li>What might prevent a well-designed intervention from creating the balancing loop we intend?</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- Activity 4: Framework Integration & Action Planning -->
-          <div class="activity-card" onclick="toggleSection('activity-integration-action')" aria-expanded="false">
-            <h4>Framework Integration & Action Planning 
-              <span class="time">15 mins</span>
-            </h4>
-            <ul>
-              <li>Connecting all four frameworks</li>
-              <li>Developing implementation plans</li>
-              <li>Preparing for stakeholder engagement</li>
-            </ul>
-            <div class="expand-icon">+</div>
-
-            <div id="activity-integration-action" class="detailed-content">
-              <!-- Activity -->
-              <div class="activity-box">
-                <h4>Activity</h4>
-                <p>Working in your project teams, create a one-page action plan that integrates all four frameworks:</p>
-                <ol>
-                  <li>Root causes identified through 5 Whys</li>
-                  <li>SMART objectives addressing these root causes</li>
-                  <li>KPIs for measuring progress and impact</li>
-                  <li>Feedback loops for continuous improvement</li>
-                </ol>
-                <p>Plan your next steps for implementation and prepare for stakeholder engagement.</p>
-              </div>
-
-              <!-- Reflection Questions -->
-              <div class="feedback-box">
-                <h4>Reflection Questions</h4>
-                <ul>
-                  <li>How do these four frameworks complement each other in addressing complex health issues?</li>
-                  <li>What challenges do you anticipate in implementing your plan?</li>
-                  <li>How will you engage stakeholders in your project?</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Assignment -->
-      <section class="activities-section">
-        <h2 class="section-title">Session 2 Assignment</h2>
-        <p style="text-align: center; margin-bottom: 20px; color: #495057;">
-          Complete this assignment before our next session.
-        </p>
-        <div class="activity-grid">
-          <div class="activity-card" style="cursor:auto;">
-            <h4>Comprehensive Framework Application<span class="time">Due Next Session</span></h4>
-            <ul>
-              <li>Finalize KPIs for your project</li>
-              <li>Create feedback collection tools</li>
-              <li>Develop a visual systems map</li>
-            </ul>
-            <!-- Details open by default here -->
-            <div class="expand-icon" style="pointer-events: none;">&nbsp;</div>
-            <div class="detailed-content" style="display: block;">
-              <p>
-                <strong>Instructions:</strong> Working individually or in your project teams, complete the following:
-              </p>
-              <ol>
-                <li>Finalize your KPI tracking template with at least 3 process and 3 outcome KPIs</li>
-                <li>Create at least one feedback collection tool (survey, interview guide, etc.) for gathering youth input</li>
-                <li>Develop a visual systems map showing:
-                  <ul>
-                    <li>The reinforcing loop(s) you're addressing</li>
-                    <li>Your intervention's balancing loop</li>
-                    <li>Points where you'll collect feedback</li>
-                    <li>How your KPIs connect to the system</li>
-                  </ul>
-                </li>
-                <li>Create a simple one-page implementation plan with timeline and responsibilities</li>
-              </ol>
-              <p>
-                Prepare to present your comprehensive framework application at our next session, where we will focus on stakeholder engagement and launching your youth-led initiatives.
-              </p>
-              <p style="margin-top: 15px; text-align: center;">
-                <a href="https://vallejo-food-access.vercel.app/" style="display: inline-block; padding: 10px 20px; background-color: var(--primary-color); color: white; text-decoration: none; border-radius: 4px; font-weight: 500;">Session Resources</a>
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <!-- Footer -->
-    <footer class="footer">
-      <p>© 2025 Health Amplified: Youth Public Health Action & Collaborative Systems Lab</p>
-      <p>Questions? Contact: javier@clubstride.org | (707) 204-3160</p>
-    </footer>
-  </div>
-
-  <!-- JavaScript for toggling activity details and sessions -->
-  <script>
-    function toggleSection(sectionId) {
-      const contentElement = document.getElementById(sectionId);
-      if (!contentElement) return;
-      contentElement.classList.toggle('active');
-      
-      const parentCard = contentElement.closest('.activity-card');
-      if (parentCard) {
-        const isActive = contentElement.classList.contains('active');
-        parentCard.setAttribute('aria-expanded', isActive ? 'true' : 'false');
-        
-        // Update the expand icon text
-        const expandIcon = parentCard.querySelector('.expand-icon');
-        if (expandIcon) {
-          expandIcon.textContent = isActive ? '-' : '+';
+    <style>
+        :root {
+            --primary-color-dark: #0a1128;
+            --primary-color-light: #ffffff;
+            --accent-color: #2c57fa;
+            --second-accent: #fa962c;
+            --text-color: #ffffff;
+            --background-color: #0a1128;
+            --shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            --border-radius: 8px;
         }
-      }
-    }
-    
-    function switchSession(sessionNum) {
-      // Update toggle buttons
-      document.getElementById('session1-btn').classList.remove('active');
-      document.getElementById('session2-btn').classList.remove('active');
-      document.getElementById('session' + sessionNum + '-btn').classList.add('active');
-      
-      // Move toggle slider
-      const toggleSlider = document.querySelector('.toggle-slider');
-      if (sessionNum === 1) {
-        toggleSlider.style.left = '5px';
-      } else {
-        toggleSlider.style.left = '50%';
-      }
-      
-      // Show/hide session content
-      document.getElementById('session1-content').classList.remove('active');
-      document.getElementById('session2-content').classList.remove('active');
-      document.getElementById('session' + sessionNum + '-content').classList.add('active');
-    }
-  </script>
+
+        /* ---------- Reset ---------- */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* ---------- Base ---------- */
+        body {
+            font-family: 'Instrument Sans', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        /* ---------- Layout ---------- */
+        .container {
+            max-width: 1200px;
+            margin-inline: auto;
+            padding: 20px;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ---------- Header ---------- */
+        header {
+            background-color: var(--primary-color-dark);
+            border: 1px solid var(--accent-color);
+            color: var(--primary-color-light);
+            padding: 2.5rem;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        header h1 {
+            font-weight: 700;
+            font-size: 32px;
+            margin-bottom: 0.5rem;
+        }
+
+        header h2 {
+            font-weight: 500;
+            font-size: 24px;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .date-box {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--primary-color-light);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-weight: 400;
+            margin-top: 0.5rem;
+        }
+
+        /* ---------- Navigation ---------- */
+        nav {
+            background-color: var(--primary-color-dark);
+            border: 1px solid var(--accent-color);
+            border-radius: 4px;
+            margin-bottom: 2rem;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav li {
+            margin: 0;
+        }
+
+        nav a {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: var(--primary-color-light);
+            border-radius: 4px;
+        }
+
+        nav a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        /* ---------- Sections ---------- */
+        section {
+            background-color: var(--primary-color-dark);
+            border: 1px solid var(--accent-color);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .section-title {
+            font-weight: 500;
+            color: var(--accent-color);
+            font-size: 32px;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        .subsection-title {
+            font-weight: 500;
+            color: var(--second-accent);
+            font-size: 24px;
+            margin: 1.5rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--second-accent);
+        }
+
+        /* ---------- Cards ---------- */
+        .system-card {
+            background-color: rgba(44, 87, 250, 0.1);
+            border: 1px solid var(--accent-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            margin-bottom: 2rem;
+        }
+
+        .system-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .system-card h3 {
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-size: 24px;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .finding-card {
+            background-color: rgba(250, 150, 44, 0.1);
+            border: 1px solid var(--second-accent);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+
+        .finding-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .finding-card h4 {
+            font-weight: 500;
+            color: var(--second-accent);
+            margin-bottom: 1rem;
+            font-size: 20px;
+            border-bottom: 2px solid var(--second-accent);
+            padding-bottom: 0.5rem;
+        }
+
+        .finding-card ul, .system-card ul {
+            padding-left: 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        .finding-card li, .system-card li {
+            margin-bottom: 0.5rem;
+            color: var(--primary-color-light);
+            font-size: 16px;
+        }
+
+        /* ---------- Study Guide Elements ---------- */
+        .key-terms {
+            background-color: rgba(44, 87, 250, 0.15);
+            border: 1px solid var(--accent-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .key-terms h4 {
+            color: var(--accent-color);
+            font-size: 20px;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .key-terms dl dt {
+            font-weight: 600;
+            color: var(--second-accent);
+            margin-top: 1rem;
+        }
+
+        .key-terms dl dd {
+            margin-left: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .reflection-box {
+            background-color: rgba(250, 150, 44, 0.15);
+            border: 1px dashed var(--second-accent);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .reflection-box h4 {
+            color: var(--second-accent);
+            font-size: 20px;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .discussion-questions {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .discussion-questions h4 {
+            color: var(--primary-color-light);
+            font-size: 20px;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .discussion-questions ol {
+            padding-left: 1.5rem;
+        }
+
+        .discussion-questions li {
+            margin-bottom: 1rem;
+        }
+
+        /* ---------- Highlights & Quotes ---------- */
+        .highlight {
+            background-color: rgba(250, 150, 44, 0.1);
+            border-left: 4px solid var(--second-accent);
+            padding: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .highlight h4 {
+            font-weight: 500;
+            font-size: 20px;
+            margin-top: 0;
+            color: var(--second-accent);
+        }
+
+        .quote {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 1rem 1.5rem;
+            border-left: 4px solid var(--second-accent);
+            margin: 1.5rem 0;
+            font-style: italic;
+        }
+
+        /* ---------- Activity Cards ---------- */
+        .activity-card {
+            background-color: rgba(44, 87, 250, 0.1);
+            border: 1px solid var(--accent-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .activity-card h4 {
+            color: var(--accent-color);
+            font-size: 20px;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        /* ---------- Footer ---------- */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--primary-color-dark);
+            border: 1px solid var(--accent-color);
+            color: var(--primary-color-light);
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+
+        /* ----- Callout Box ----- */
+        .callout {
+            border: 2px solid var(--accent-color);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            background-color: rgba(44, 87, 250, 0.1);
+            position: relative;
+        }
+
+        .callout::before {
+            content: "✓";
+            position: absolute;
+            top: -15px;
+            left: 15px;
+            background-color: var(--accent-color);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .callout h4 {
+            margin-top: 0.5rem;
+            color: var(--accent-color);
+            font-size: 18px;
+        }
+
+        .callout p {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- =================================================
+             Header
+        ================================================= -->
+        <header>
+            <h1>Vallejo Youth Health Initiative</h1>
+            <h2>Student Study Guide</h2>
+            <p>Understanding the 5 Pressure Systems Affecting Youth Health & Wellbeing</p>
+            <div class="date-box">May 2025</div>
+        </header>
+
+        <!-- =================================================
+             Navigation
+        ================================================= -->
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#key-terms">Key Terms</a></li>
+                <li><a href="#pressure-systems">Pressure Systems</a></li>
+                <li><a href="#action-ideas">Action Ideas</a></li>
+                <li><a href="#activities">Your Role</a></li>
+                <li><a href="#discussion">Discussion</a></li>
+            </ul>
+        </nav>
+
+        <!-- =================================================
+             Introduction Section
+        ================================================= -->
+        <section id="introduction">
+            <h2 class="section-title">Introduction: Why This Matters</h2>
+            
+            <p>This study guide will help you understand the complex challenges affecting youth health in Vallejo and how you can take action. You'll learn about five interconnected "pressure systems" that create barriers to health and wellbeing, and explore ways you can help break these cycles.</p>
+            
+            <div class="callout">
+                <h4>How to Use This Guide</h4>
+                <p>This study guide is designed to help you prepare for your role in the Vallejo Youth Health Initiative. Read through each section, reflect on the discussion questions, and think about how these issues affect you and your peers.</p>
+            </div>
+            
+            <div class="highlight">
+                <h4>Our Vision</h4>
+                <p>A Vallejo where all youth have equitable access to resources, opportunities, and support systems that enable them to thrive physically, mentally, and socially.</p>
+            </div>
+            
+            <div class="two-column">
+                <div class="finding-card">
+                    <h4>What We're Working Toward</h4>
+                    <ul>
+                        <li>Increasing knowledge of resources and support systems</li>
+                        <li>Expanding access to food, healthcare, and safe spaces</li>
+                        <li>Reducing stigma around getting help</li>
+                        <li>Building youth leadership and advocacy skills</li>
+                    </ul>
+                </div>
+                
+                <div class="finding-card">
+                    <h4>Why Your Voice Matters</h4>
+                    <ul>
+                        <li>You understand challenges youth face firsthand</li>
+                        <li>You have insights and ideas adults might miss</li>
+                        <li>You can reach peers in ways adults can't</li>
+                        <li>You're building skills for long-term leadership</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================
+             Key Terms Section
+        ================================================= -->
+        <section id="key-terms">
+            <h2 class="section-title">Key Terms to Know</h2>
+            
+            <div class="key-terms">
+                <h4>Important Concepts</h4>
+                <dl>
+                    <dt>Pressure System</dt>
+                    <dd>A set of related problems that form a self-reinforcing cycle, making each problem harder to solve on its own.</dd>
+                    
+                    <dt>Food Insecurity</dt>
+                    <dd>Limited or uncertain access to enough nutritious food for an active, healthy life.</dd>
+                    
+                    <dt>Food Desert</dt>
+                    <dd>Areas where residents have limited access to affordable, nutritious food due to distance from grocery stores and lack of transportation.</dd>
+                    
+                    <dt>Digital Divide</dt>
+                    <dd>The gap between those who have reliable access to internet and technology and those who don't.</dd>
+                    
+                    <dt>Social Determinants of Health</dt>
+                    <dd>The conditions in which people are born, grow, live, work, and age that affect health and quality of life.</dd>
+                    
+                    <dt>Syndemic</dt>
+                    <dd>When multiple health problems interact and worsen each other's effects, especially in communities facing inequality.</dd>
+                    
+                    <dt>Environmental Justice</dt>
+                    <dd>Fair treatment and meaningful involvement of all people regardless of race, color, national origin, or income with respect to environmental policies.</dd>
+                </dl>
+            </div>
+            
+            <div class="reflection-box">
+                <h4>Personal Connection</h4>
+                <p>Before moving on, take a moment to think about:</p>
+                <ul>
+                    <li>Which of these concepts have you experienced or noticed in your community?</li>
+                    <li>Are there terms here that surprise you or that you hadn't thought about before?</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- =================================================
+             Pressure Systems Section
+        ================================================= -->
+        <section id="pressure-systems">
+            <h2 class="section-title">The 5 Pressure Systems</h2>
+            <p>Our research has revealed five interconnected systems that create challenges for Vallejo youth. Understanding these systems will help us develop more effective solutions.</p>
+            
+            <div class="system-card">
+                <h3>1. Hunger → Stress → Risk Cycle</h3>
+                <p><strong>How it works:</strong> Food insecurity creates stress, which can lead to riskier choices (like skipping healthcare or unsafe relationships), which then make hunger worse.</p>
+                
+                <div class="highlight">
+                    <h4>Quick Facts</h4>
+                    <ul>
+                        <li>73% of Vallejo students qualify for free/reduced meals</li>
+                        <li>More than half of high school students skip breakfast</li>
+                        <li>About 1 in 6 children in our county lack consistent access to adequate food</li>
+                    </ul>
+                </div>
+                
+                <h4 class="subsection-title">How Food Insecurity Affects You & Your Peers</h4>
+                <div class="two-column">
+                    <div>
+                        <h4>Mental Health Impact</h4>
+                        <ul>
+                            <li>Creates ongoing stress and anxiety</li>
+                            <li>Makes it harder to regulate emotions</li>
+                            <li>Can lead to depression and feeling hopeless</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>School Performance</h4>
+                        <ul>
+                            <li>Hungry students have lower GPAs (3.2 GPA for food-secure students vs. 2.3 GPA for food-insecure students)</li>
+                            <li>Harder to focus and remember information</li>
+                            <li>More likely to miss school</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="quote">"It could increase the stress level by a lot... good food equals good minds."</div>
+                
+                <div class="reflection-box">
+                    <h4>Think About It</h4>
+                    <p>Have you or your friends ever:</p>
+                    <ul>
+                        <li>Skipped meals because food wasn't available?</li>
+                        <li>Had trouble concentrating in class due to hunger?</li>
+                        <li>Felt embarrassed about not having enough food?</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="system-card">
+                <h3>2. Infrastructure Gaps as Social Determinants</h3>
+                <p><strong>How it works:</strong> Poor internet, unsafe parks, and food deserts isolate youth and make it harder to participate in school, social, and health activities.</p>
+                
+                <div class="two-column">
+                    <div>
+                        <h4>Digital Problems</h4>
+                        <ul>
+                            <li>42% rate home/school internet as "terrible"</li>
+                            <li>Hard to complete schoolwork or applications</li>
+                            <li>Limited access to online resources and support</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Food Access Issues</h4>
+                        <ul>
+                            <li>Only 12% of stores in low-income areas are real grocery stores</li>
+                            <li>Far more liquor stores (29%) and convenience stores (46%)</li>
+                            <li>88% of liquor stores clustered in low-income neighborhoods</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="highlight">
+                    <h4>Environmental Justice Issue</h4>
+                    <p>The lack of healthy food options in communities of color and low-income areas is considered a form of environmental racism.</p>
+                </div>
+            </div>
+            
+            <div class="system-card">
+                <h3>3. Bureaucracy & ID Anxiety Spiral</h3>
+                <p><strong>How it works:</strong> Complicated paperwork (like FAFSA, CalFresh applications, or shelter intake forms) creates anxiety and avoidance, causing people to miss out on resources they need.</p>
+                
+                <h4 class="subsection-title">Common Barriers</h4>
+                <ul>
+                    <li>Social Security number requirements (top FAFSA confusion point)</li>
+                    <li>Complex eligibility rules for assistance programs</li>
+                    <li>ID requirements that are challenging for homeless youth</li>
+                    <li>Privacy concerns, especially for mixed-status families</li>
+                </ul>
+                
+                <div class="reflection-box">
+                    <h4>Think About It</h4>
+                    <p>Have you or someone you know ever:</p>
+                    <ul>
+                        <li>Given up on an application because it was too confusing?</li>
+                        <li>Needed help but avoided getting it because of paperwork?</li>
+                        <li>Worried about sharing personal information to get services?</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="system-card">
+                <h3>4. Mobility & Geography Trap</h3>
+                <p><strong>How it works:</strong> Limited transportation makes it hard to access food, healthcare, and opportunities, which leads to poorer health and fewer resources to travel.</p>
+                
+                <div class="two-column">
+                    <div>
+                        <h4>Transportation Challenges</h4>
+                        <ul>
+                            <li>46% of homeless youth cite transportation as their biggest obstacle</li>
+                            <li>Limited bus routes and long commutes to resources</li>
+                            <li>Difficult to carry groceries on public transit</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>How Youth Adapt</h4>
+                        <ul>
+                            <li>Visit multiple stores to find affordable food</li>
+                            <li>Give up on planned meals due to lack of ingredients</li>
+                            <li>Skip medical appointments or social activities</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="quote">"Riding the bus, I can only have one batch as I have a purse… there's a walking distance."</div>
+                <div class="quote">"If I have to cook a meal, then go to Food Max for this and the Filipino place for that… sometimes I give up that meal; it's not worth it."</div>
+            </div>
+            
+            <div class="system-card">
+                <h3>5. Safety, Trust & Stigma Loop</h3>
+                <p><strong>How it works:</strong> Fear of danger or judgment keeps youth from using shelters, clinics, and mental health services; problems get worse because they're not addressed, reinforcing fears and stigma.</p>
+                
+                <h4 class="subsection-title">Key Barriers</h4>
+                <ul>
+                    <li>Youth avoid shelters due to safety concerns</li>
+                    <li>Many request "anonymous or confidential" STI resources due to stigma</li>
+                    <li>Mental health help-seeking delayed due to fear of judgment</li>
+                    <li>Unlit parks and unsafe public spaces limit resources and recreation</li>
+                </ul>
+                
+                <div class="reflection-box">
+                    <h4>Think About It</h4>
+                    <p>Have you or your friends ever:</p>
+                    <ul>
+                        <li>Avoided getting help for a problem because of what others might think?</li>
+                        <li>Felt unsafe in places designed to help young people?</li>
+                        <li>Had friends who needed support but were scared to ask for it?</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="callout">
+                <h4>Why Understanding These Systems Matters</h4>
+                <p>Single solutions miss how problems connect. For example, better Wi-Fi doesn't just help with homework—it also makes it possible to do telehealth visits, apply for benefits online, and learn about local resources. When we understand these connections, we can create solutions with bigger impact.</p>
+            </div>
+        </section>
+
+        <!-- =================================================
+             Action Ideas -->
+
+       
+        <section id="action-ideas">
+            <h2 class="section-title">Creative Solutions: What We Can Do</h2>
+            <p>Based on our research, here are some youth-powered ideas that could help break these pressure systems:</p>
+            
+            <div class="two-column">
+                <div class="finding-card">
+                    <h4>Food Access Ideas</h4>
+                    <ul>
+                        <li><strong>Healthy Vallejo Corner Stores</strong> — Create a youth-designed badge program that helps corner stores add affordable fresh options</li>
+                        <li><strong>Pop-Up Produce Labs</strong> — Host weekend stands with fresh food samples, recipe demos, and music</li>
+                        <li><strong>"Food Drop" alerts</strong> — Set up a text system to notify people about free food events, deals, and double-EBT days</li>
+                        <li><strong>Mobile "Fresh Bus"</strong> — Advocate for a bus that brings low-cost produce to neighborhoods with limited food access</li>
+                    </ul>
+                </div>
+                
+                <div class="finding-card">
+                    <h4>Safety & Technology Ideas</h4>
+                    <ul>
+                        <li><strong>Park Lighting Campaign</strong> — Assess lighting in parks and create a proposal for safer evening spaces</li>
+                        <li><strong>QR-Code Recipe Trails</strong> — Install signs in parks and at bus stops with QR codes linking to quick, affordable recipes</li>
+                        <li><strong>Smart Kiosks</strong> — Advocate for digital information stations at bus stops showing resource maps and community events</li>
+                        <li><strong>Anonymous Health Resources</strong> — Create a system for confidential access to STI testing and mental health support</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="two-column">
+                <div class="finding-card">
+                    <h4>School-Based Solutions</h4>
+                    <ul>
+                        <li><strong>Grab-and-Go Snack Bins</strong> — Set up discreet food stations in classrooms and offices</li>
+                        <li><strong>Resource Guides</strong> — Create easy-to-use cards (English/Spanish) linking to local support services</li>
+                        <li><strong>Peer Navigators</strong> — Train students to help classmates with complicated forms like FAFSA applications</li>
+                        <li><strong>Social Media Campaign</strong> — Create TikTok and Instagram content to reduce stigma and share resources</li>
+                    </ul>
+                </div>
+                
+                <div class="finding-card">
+                    <h4>Transportation Solutions</h4>
+                    <ul>
+                        <li><strong>Bus Route Mapping</strong> — Create maps showing how to get to key resources using public transportation</li>
+                        <li><strong>Grocery Buddy System</strong> — Organize shopping groups to help carry groceries on public transit</li>
+                        <li><strong>Resource Bundles</strong> — Create "one-stop-shop" events where multiple services are available in one location</li>
+                        <li><strong>Mobile Services</strong> — Advocate for health services, food resources, and WiFi to come to where youth already are</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="callout">
+                <h4>Thinking "Systems-First"</h4>
+                <p>The best solutions tackle multiple pressure systems at once. For example, a pop-up health event that offers food, WiFi hotspots, and help with paperwork addresses 3-4 pressure systems at the same time!</p>
+            </div>
+            
+            <div class="reflection-box">
+                <h4>Your Ideas Matter!</h4>
+                <p>Think about:</p>
+                <ul>
+                    <li>What other solutions can you think of that might address these systems?</li>
+                    <li>How could you combine these ideas in creative ways?</li>
+                    <li>Which of these ideas would make the biggest difference in your life or your friends' lives?</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- =================================================
+             Your Role Section
+        ================================================= -->
+        <!-- <section id="activities">
+            <h2 class="section-title">Your Role in the Initiative</h2>
+            <p>As part of the Vallejo Youth Health Initiative, you'll have the opportunity to work on one of these projects. Here's what your experience will look like:</p>
+            
+            <div class="activity-card">
+                <h4>Overview of the 6-Week Program</h4>
+                <ul>
+                    <li><strong>Week 1:</strong> Orientation & Systems Mapping — Learn about the issues and choose your team</li>
+                    <li><strong>Week 2:</strong> Stakeholder Engagement & Listening Tool Design — Develop surveys and interview guides</li>
+                    <li><strong>Week 3:</strong> Campus Activation + Listening Sessions — Host events and collect feedback from peers</li>
+                    <li><strong>Week 4:</strong> Data Analysis & Equity Messaging — Identify themes and develop key messages</li>
+                    <li><strong>Week 5:</strong> Strategy Development & Systems Alignment — Create solutions and prepare presentations</li>
+                    <li><strong>Week 6:</strong> Final Showcase & Collaborative Activation — Present your work to community leaders</li>
+                </ul>
+            </div>
+            
+            <h3 class="subsection-title">Project Options</h3>
+            
+            <div class="two-column">
+                <div class="activity-card">
+                    <h4>Create Health Education Modules</h4>
+                    <p><strong>What you'll do:</strong> Work in a team of 5 to create digital content that combines information about nutrition, mental health, and sexual health.</p>
+                    <p><strong>You'll learn:</strong> Digital design skills, health communication, team collaboration, and presentation skills.</p>
+                    <p><strong>Impact:</strong> Your content will help break stigma and provide accurate information to peers about these interconnected issues.</p>
+                </div>
+                
+                <div class="activity-card">
+                    <h4>Social Media Campaign</h4>
+                    <p><strong>What you'll do:</strong> Create social media content about health resources, collaborate with local micro-influencers, and design engaging digital content.</p>
+                    <p><strong>You'll learn:</strong> Digital marketing, content creation, audience engagement, and data tracking.</p>
+                    <p><strong>Impact:</strong> Your campaign will help reduce stigma and increase awareness of resources among your peers.</p>
+                </div>
+            </div>
+            
+            <div class="two-column">
+                <div class="activity-card">
+                    <h4>Resource Guide Project</h4>
+                    <p><strong>What you'll do:</strong> Create multilingual resource cards with QR codes and develop peer navigator guides for accessing local resources.</p>
+                    <p><strong>You'll learn:</strong> Research skills, translation, resource mapping, and clear communication.</p>
+                    <p><strong>Impact:</strong> Your guides will help peers navigate complex systems and find the resources they need.</p>
+                </div>
+                
+                <div class="activity-card">
+                    <h4>Healthy Corner Store Initiative</h4>
+                    <p><strong>What you'll do:</strong> Map local stores, create relationships with store owners, and develop materials to promote fresh food options.</p>
+                    <p><strong>You'll learn:</strong> Community mapping, business outreach, advocacy, and food systems.</p>
+                    <p><strong>Impact:</strong> Your work will help improve access to healthy food in neighborhoods with limited options.</p>
+                </div>
+            </div>
+            
+            <div class="activity-card">
+                <h4>Park Safety Assessment</h4>
+                <p><strong>What you'll do:</strong> Evaluate lighting and safety at Dan Foley Park, gather community input, and create recommendations for evening programming.</p>
+                <p><strong>You'll learn:</strong> Environmental assessment, community engagement, safety planning, and proposal development.</p>
+                <p><strong>Impact:</strong> Your assessment will help create safer public spaces for youth recreation and activities.</p>
+            </div>
+            
+            <div class="callout">
+                <h4>What You'll Gain</h4>
+                <p>By participating in this initiative, you'll develop valuable skills in:</p>
+                <ul>
+                    <li>Peer advocacy and support systems navigation</li>
+                    <li>Data collection and research methods</li>
+                    <li>Public health messaging and communication</li>
+                    <li>Cross-sector collaboration and community building</li>
+                    <li>Public speaking and systems change design</li>
+                </ul>
+            </div>
+        </section> -->
+
+        <!-- =================================================
+             Discussion Questions Section
+        ================================================= -->
+        <!-- <section id="discussion">
+            <h2 class="section-title">Discussion Questions</h2>
+            <p>Prepare for your first meeting by thinking about these questions. There are no wrong answers—your honest thoughts and experiences are valuable!</p>
+            
+            <div class="discussion-questions">
+                <h4>Understanding the Systems</h4>
+                <ol>
+                    <li>Which of the five pressure systems do you think affects you or your friends the most? Why?</li>
+                    <li>How do you see these systems connecting or overlapping in your daily life or community?</li>
+                    <li>What aspects of these systems surprised you or made you think differently about challenges in Vallejo?</li>
+                    <li>Can you think of examples where one problem in your community makes another problem worse?</li>
+                </ol>
+            </div>
+            
+            <div class="discussion-questions">
+                <h4>Personal Experiences</h4>
+                <ol>
+                    <li>Have you or someone you know experienced food insecurity? What was that like?</li>
+                    <li>How do transportation issues affect your ability to access resources or opportunities?</li>
+                    <li>Have you ever avoided asking for help because of concerns about paperwork, privacy, or stigma?</li>
+                    <li>What places in your community feel unsafe or unwelcoming, and how does that affect what you do?</li>
+                </ol>
+            </div>
+            
+            <div class="discussion-questions">
+                <h4>Solutions & Actions</h4>
+                <ol>
+                    <li>Which of the proposed solutions do you think would make the biggest difference? Why?</li>
+                    <li>What ideas do you have that aren't listed in this guide?</li>
+                    <li>What project are you most interested in working on, and what skills do you hope to gain?</li>
+                    <li>How could you use your personal strengths and interests to address these challenges?</li>
+                </ol>
+            </div>
+            
+            <div class="reflection-box">
+                <h4>Preparing for Session 1</h4>
+                <p>Before your first meeting:</p>
+                <ol>
+                    <li>Think about which project interests you most</li>
+                    <li>Make notes about your thoughts on at least 3 discussion questions</li>
+                    <li>Consider what unique perspectives or skills you bring to this work</li>
+                    <li>Come ready to share your ideas and listen to others</li>
+                </ol>
+            </div>
+        </section> -->
+
+        <!-- =================================================
+             Next Steps Section
+        ================================================= -->
+        <!-- <section id="next-steps">
+            <h2 class="section-title">Next Steps</h2>
+            
+            <div class="callout">
+                <h4>Key Dates</h4>
+                <ul>
+                    <li><strong>Orientation Session:</strong> May 12, 2025</li>
+                    <li><strong>Regular Meetings:</strong> Twice weekly, May 12 - June 23, 2025</li>
+                    <li><strong>Final Presentation:</strong> June 23, 2025</li>
+                </ul>
+            </div>
+            
+            <h3 class="subsection-title">What to Bring</h3>
+            <ul>
+                <li>This study guide (digital or printed)</li>
+                <li>A notebook or device for taking notes</li>
+                <li>Your thoughts on the discussion questions</li>
+                <li>Your questions about the program</li>
+                <li>An open mind and willingness to collaborate</li>
+            </ul>
+            
+            <div class="highlight">
+                <h4>Remember</h4>
+                <p>Your voice and experiences are essential to this work. You are the expert on what youth in Vallejo need, and your ideas will help create real change in your community.</p>
+            </div>
+        </section> -->
+
+        <!-- =================================================
+             Footer
+        ================================================= -->
+        <div class="footer">
+            <p>Vallejo Youth Health Initiative</p>
+            <p>May 2025 Student Study Guide</p>
+            <p>Club Stride Inc. | Contact: (707) 204-3160</p>
+        </div>
+    </div>
 </body>
 </html>
